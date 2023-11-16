@@ -3,15 +3,15 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { MagicMotion } from "react-magic-motion";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { OpenContext } from "./main-side-nav";
-import autoAnimate from "@formkit/auto-animate";
 import { themeChange } from "@/app/utils/themeChangeFunction";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 
 
 export default function LightModeSwitch() {
 
     //Referencia para animação do ícone
-    const switchRef = useRef(null);
+    const [parent, enableAnimations] = useAutoAnimate({ duration: 150 })
 
     //Estado atual do tema
     const [darkState, setDarkState] = useState(true);
@@ -28,16 +28,12 @@ export default function LightModeSwitch() {
     };
 
     useEffect(() => {
-        if (switchRef.current) {
-            autoAnimate(switchRef.current);
-        }
-        //Atualiza o tema assim que carrega o componente
         setDarkState(themeChange());
-    }, [switchRef]);
+    }, []);
 
     return (
         <div className="h-10 flex px-2 items-center">
-            <div ref={switchRef} className="items-center ml-[5px] p-2">
+            <div ref={parent} className="items-center ml-[5px] p-2">
                 {darkState
                     ? <BsMoonFill id="moonIcon" name="moonIcon" size="1.2em" className="m-auto" />
                     : <BsSunFill id="sunIcon" name="sunIcon" size="1.2em" className="m-auto" />}

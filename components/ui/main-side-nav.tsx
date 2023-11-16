@@ -18,7 +18,7 @@ export default function SideNav({children} : SideNavProps){
     return (
         <OpenContext.Provider value={open}>
             <div 
-                className={`${open ? "w-[18rem]" : "w-[5rem]"} transition-[width] duration-200 absolute left-0 bg-white dark:bg-slate-900 max-w-xs h-screen px-2 py-4 flex flex-col overflow-hidden`}
+                className={`${open ? "w-[18rem]" : "w-[5rem]"} transition-[width] duration-200 shadow-lg absolute left-0 bg-white dark:bg-slate-900 max-w-xs h-screen px-2 py-4 flex flex-col overflow-hidden`}
                 onMouseEnter={() => setOpen(true)}
                 onMouseLeave={() => setOpen(false)}
             >
