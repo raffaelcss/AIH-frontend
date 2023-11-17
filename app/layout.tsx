@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} transition-colors ease-in duration-200 pl-20 bg-indigo-200 dark:bg-blue-950 ${poppins.className}`}>
+      <body className={`${inter.className} transition-colors ease-in duration-200 pl-20 bg-indigo-200 dark:bg-slate-950 ${poppins.className}`}>
         <SideNav>
           <NavItem name="Home">
               <FaHouse size="1.2em"/>
