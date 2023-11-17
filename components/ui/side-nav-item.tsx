@@ -27,7 +27,7 @@ export default function NavItem( {name, children} : NavItemProps){
                     <div className="flex absolute rounded-full h-2 w-2 bg-sky-500 right-1"/>
                 }    
             </div>
-            <div className={`${open ? "opacity-100" : "opacity-0"} transition-all delay-100`}>
+            <div className={`${open ? "opacity-100" : "opacity-0"} flex flex-1 transition-all delay-100`}>
                 <div className="w-36 retractable p-2 text-base font-normal leading-snug tracking-tight">
                     {name}
                 </div>
