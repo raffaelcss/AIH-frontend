@@ -26,7 +26,10 @@ export default function NavItem({ name, children }: NavItemProps) {
       <div className="relative ml-[5px] flex items-center p-2">
         {children}
         {!open && quantity > 0 && (
-          <div className="absolute right-1 flex h-2 w-2 rounded-full bg-sky-500" />
+          <span className="absolute right-1 h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+            <span className="absolute inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+          </span>
         )}
       </div>
       <div
