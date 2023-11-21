@@ -19,7 +19,7 @@ export default function SideNav({ children }: SideNavProps) {
       <div
         className={`${
           open ? "w-[18rem]" : "w-[5rem]"
-        } absolute left-0 flex h-screen max-w-xs flex-col overflow-hidden bg-white px-2 py-4 shadow-lg transition-[width] duration-200 dark:bg-slate-900`}
+        } absolute left-0 z-50 flex h-screen max-w-xs flex-col overflow-hidden bg-white px-2 py-4 shadow-lg transition-[width] duration-200 dark:bg-slate-900`}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
       >
