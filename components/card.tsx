@@ -1,3 +1,4 @@
+import CardInfo from "./CardInfo";
 import SocialBar from "./SocialBar";
 import CardButton from "./cardButton";
 
@@ -9,8 +10,8 @@ export default function Card() {
         <div className="mx-px my-2 flex flex-1 flex-col">
           <SocialBar />
           <div className="mt-2 flex flex-1 flex-col justify-between">
-            <div className="flex-1">Infos</div>
-            <div className="flex-none text-lg font-semibold text-slate-800 dark:text-gray-100">
+            <CardInfo />
+            <div className="mt-1 flex-none text-lg font-semibold text-slate-800 dark:text-gray-100">
               Titulo
             </div>
           </div>
