@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { Poppins } from "next/font/google";
-import SideNav from "@/components/ui/main-side-nav";
-import NavItem from "@/components/ui/side-nav-item";
+import SideNav from "@/components/ui/SideNav";
+import NavItem from "@/components/ui/SideNavItem";
 import { IoBagHandle } from "react-icons/io5";
 import { FaPenSquare, FaImages, FaUserAlt } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";

@@ -2,7 +2,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { MagicMotion } from "react-magic-motion";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
-import { OpenContext } from "./main-side-nav";
+import { OpenContext } from "./SideNav";
 import { themeChange } from "@/app/utils/themeChangeFunction";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 

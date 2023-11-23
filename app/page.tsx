@@ -1,5 +1,5 @@
-import Card from "@/components/card";
-import SearchInput from "@/components/searchInput";
+import Card from "@/components/Card/Card";
+import SearchInput from "@/components/SearchInput";
 
 export default function Home() {
   let cards: Array<number> = [];

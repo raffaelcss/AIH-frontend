@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import { OpenContext } from "./main-side-nav";
+import { OpenContext } from "./SideNav";
 
 interface NavItemProps {
   name: string;
