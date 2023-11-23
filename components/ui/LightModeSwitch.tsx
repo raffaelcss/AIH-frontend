@@ -54,7 +54,7 @@ export default function LightModeSwitch() {
           open ? "opacity-100" : "opacity-0"
         } flex flex-1 items-center  transition-all delay-100`}
       >
-        <div className="retractable w-36 p-2">Light Mode</div>
+        <div className="cursor-default retractable w-36 p-2">Light Mode</div>
         <MagicMotion>
           <div
             className={`${
