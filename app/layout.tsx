@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-indigo-200 pl-20 transition-colors duration-200 ease-in dark:bg-slate-950 ${poppins.className}`}
+        className={`${inter.className} bg-indigo-200 pl-12 transition-colors duration-200 ease-in dark:bg-slate-950 md:pl-20 ${poppins.className}`}
       >
         <SideNav>
           <NavItem name="Home">

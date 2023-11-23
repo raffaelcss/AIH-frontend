@@ -31,7 +31,7 @@ export default function LightModeSwitch() {
   }, []);
 
   return (
-    <div className="flex h-10 items-center md:px-2">
+    <div className="flex h-10 items-center md:px-2" onClick={handleClick}>
       <div ref={parent} className="ml-[5px] items-center p-2">
         {darkState ? (
           <BsMoonFill
@@ -57,7 +57,6 @@ export default function LightModeSwitch() {
         <div className="retractable w-36 p-2">Light Mode</div>
         <MagicMotion>
           <div
-            onClick={handleClick}
             className={`${
               darkState ? "flex-row" : "flex-row-reverse"
             } retractable ml-auto mr-4 inline-flex h-5 w-14 cursor-pointer items-center justify-between rounded-full bg-indigo-100 px-1.5 py-0.5 dark:bg-slate-500 md:mr-0`}
