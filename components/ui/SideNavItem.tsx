@@ -21,14 +21,14 @@ export default function NavItem({ name, children }: NavItemProps) {
   return (
     <a
       onClick={handleClick}
-      className="flex h-10 cursor-pointer rounded px-2 text-slate-500 hover:bg-indigo-100 dark:text-gray-100 hover:dark:bg-slate-500"
+      className="flex h-10 cursor-pointer rounded text-slate-500 hover:bg-indigo-100 dark:text-gray-100 hover:dark:bg-slate-500 md:px-2"
     >
       <div className="relative ml-[5px] flex items-center p-2">
         {children}
         {!open && quantity > 0 && (
           <span className="absolute right-1 h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-            <span className="absolute inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+            <span className="absolute inline-flex h-2 w-2 rounded-full bg-sky-500"></span>
           </span>
         )}
       </div>
