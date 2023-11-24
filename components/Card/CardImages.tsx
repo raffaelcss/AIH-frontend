@@ -1,14 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { Skeleton } from "@mui/material";
+import { useContext, useState } from "react";
 import { GoDotFill } from "react-icons/go";
+import { CardLoadingContext } from "./Card";
 
 export default function CardImages() {
   //Foto selecionada
   const [selected, setSelected] = useState(0);
 
+  const loading = useContext(CardLoadingContext);
+
   const handleClick = (select: number) => {
-    setSelected(select);
+    if (!loading) setSelected(select);
   };
 
   let imagesUrl = [
@@ -17,27 +21,38 @@ export default function CardImages() {
     "bg-[url('https://ogimg.infoglobo.com.br/in/17082413-242-265/FT1086A/760/fantasma-estrela-agonizante.jpg')]",
   ];
   return (
-    <div
-      className={`relative mt-2 flex h-52 flex-none justify-center rounded-md transition-[background-image] duration-300 ease-out ${imagesUrl[selected]} bg-cover bg-center`}
-    >
-      <div className="absolute -bottom-6 flex text-slate-500">
+    <div className="relative mt-2 flex h-52 justify-center">
+      {loading ? (
+        <Skeleton
+          className="flex-1 rounded-md dark:bg-slate-800"
+          animation="wave"
+          variant="rectangular"
+          height={208}
+        />
+      ) : (
+        <div
+          className={`flex-1 rounded-md transition-[background-image] duration-300 ease-out ${imagesUrl[selected]} bg-cover bg-center`}
+        ></div>
+      )}
+
+      <div className={`absolute -bottom-6 flex ${loading ? "text-slate-300" : "text-slate-500"} `}>
         <GoDotFill
           size="0.7rem"
-          className={`${selected == 0 ? "text-sky-400" : ""} cursor-pointer`}
+          className={`${(selected == 0 && !loading) ? "text-sky-400" : ""} cursor-pointer`}
           onClick={() => {
             handleClick(0);
           }}
         />
         <GoDotFill
           size="0.7rem"
-          className={`${selected == 1 ? "text-sky-400" : ""} cursor-pointer`}
+          className={`${(selected == 1 && !loading) ? "text-sky-400" : ""} cursor-pointer`}
           onClick={() => {
             handleClick(1);
           }}
         />
         <GoDotFill
           size="0.7rem"
-          className={`${selected == 2 ? "text-sky-400" : ""} cursor-pointer`}
+          className={`${(selected == 2 && !loading) ? "text-sky-400" : ""} cursor-pointer`}
           onClick={() => {
             handleClick(2);
           }}
