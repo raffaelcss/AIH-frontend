@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-indigo-200 pl-12 transition-colors duration-200 ease-in dark:bg-slate-950 md:pl-20 ${poppins.className}`}
+        className={`${inter.className} bg-indigo-200 pl-12 dark:bg-slate-950 md:pl-20 ${poppins.className}`}
       >
         <Providers>
           <SideNavAIH />
