@@ -5,30 +5,34 @@ import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { OpenContext } from "./SideNav";
 import { themeChange } from "@/app/utils/themeChangeFunction";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useTheme } from "next-themes";
 
 export default function LightModeSwitch() {
   //Referencia para animação do ícone
   const [parent, enableAnimations] = useAutoAnimate({ duration: 150 });
-
-  //Estado atual do tema
-  const [darkState, setDarkState] = useState(true);
   //Contexto do menu aberto
   const open = useContext(OpenContext);
 
-  //Função de clique no botão de mudança de tema
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  let darkState = theme == "dark";
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setDarkState(!darkState);
-    //Deve verificar sempre o localStorage pois o State demora para mudar
-    localStorage.theme === "dark"
-      ? (localStorage.theme = "light")
-      : (localStorage.theme = "dark");
-    console.log("Storage:" + themeChange());
-    console.log("State:" + darkState);
+    if (darkState)
+      setTheme("light")
+    else
+    setTheme("dark");
   };
 
+  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
-    setDarkState(themeChange());
+    setMounted(true);
   }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="flex h-10 items-center md:px-2" onClick={handleClick}>
@@ -54,7 +58,7 @@ export default function LightModeSwitch() {
           open ? "opacity-100" : "opacity-0"
         } flex flex-1 items-center  transition-all delay-100`}
       >
-        <div className="cursor-default retractable w-36 p-2">Light Mode</div>
+        <div className="retractable w-36 cursor-default p-2">Light Mode</div>
         <MagicMotion>
           <div
             className={`${
