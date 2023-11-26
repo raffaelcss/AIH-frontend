@@ -25,7 +25,6 @@ export default function CardImages() {
       {loading ? (
         <Skeleton
           className="flex-1 rounded-md dark:bg-slate-800"
-          animation="wave"
           variant="rectangular"
           height={208}
         />
@@ -35,24 +34,34 @@ export default function CardImages() {
         ></div>
       )}
 
-      <div className={`absolute -bottom-6 flex ${loading ? "text-slate-300" : "text-slate-500"} `}>
+      <div
+        className={`absolute -bottom-6 flex ${
+          loading ? "text-slate-300 dark:text-slate-800" : "text-slate-500"
+        } `}
+      >
         <GoDotFill
           size="0.7rem"
-          className={`${(selected == 0 && !loading) ? "text-sky-400" : ""} cursor-pointer`}
+          className={`${
+            selected == 0 && !loading ? "text-sky-400" : ""
+          } cursor-pointer`}
           onClick={() => {
             handleClick(0);
           }}
         />
         <GoDotFill
           size="0.7rem"
-          className={`${(selected == 1 && !loading) ? "text-sky-400" : ""} cursor-pointer`}
+          className={`${
+            selected == 1 && !loading ? "text-sky-400" : ""
+          } cursor-pointer`}
           onClick={() => {
             handleClick(1);
           }}
         />
         <GoDotFill
           size="0.7rem"
-          className={`${(selected == 2 && !loading) ? "text-sky-400" : ""} cursor-pointer`}
+          className={`${
+            selected == 2 && !loading ? "text-sky-400" : ""
+          } cursor-pointer`}
           onClick={() => {
             handleClick(2);
           }}

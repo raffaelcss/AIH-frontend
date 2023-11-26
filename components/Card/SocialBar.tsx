@@ -63,7 +63,6 @@ export default function SocialBar() {
       {loading ? (
         <Skeleton
           className="dark:bg-slate-800"
-          animation="wave"
           variant="text"
           width={75}
           sx={{ fontSize: "0.65rem" }}

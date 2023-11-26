@@ -6,29 +6,30 @@ import SocialBar from "./SocialBar";
 import CardButton from "./CardButton";
 import { LuMoreVertical } from "react-icons/lu";
 import { Avatar, Skeleton } from "@mui/material";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CardLoadingContext = createContext(true);
 
 export default function Card() {
   const [loading, setLoading] = useState(true);
 
-  const cardClick = (event: React.MouseEvent<HTMLElement>) => {
-    setLoading(!loading);
-  };
+  let timeSimulatedLoading = Math.round(Math.random()*2000 + 500);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    },timeSimulatedLoading);
+  });
 
   return (
     <CardLoadingContext.Provider value={loading}>
       <div
-        onClick={cardClick}
         className="relative flex w-68 flex-col overflow-hidden rounded-2xl bg-white p-4 transition-colors dark:bg-slate-900"
       >
-        <div className="flex items-center justify-between text-slate-500">
+        <div className="flex h-[35px] items-center justify-between text-slate-500">
           <div className="flex flex-1 items-center gap-2">
             {loading ? (
               <Skeleton
                 className="dark:bg-slate-800"
-                animation="wave"
                 variant="circular"
                 width={32}
                 height={32}
@@ -49,14 +50,12 @@ export default function Card() {
               <div>
                 <Skeleton
                   className="dark:bg-slate-800"
-                  animation="wave"
                   variant="text"
                   width={150}
-                  sx={{ fontSize: "0.85rem" }}
+                  sx={{ fontSize: "0.875rem" }}
                 />
                 <Skeleton
                   className="dark:bg-slate-800"
-                  animation="wave"
                   variant="text"
                   width={130}
                   sx={{ fontSize: "10px" }}
@@ -86,7 +85,6 @@ export default function Card() {
               {loading ? (
                 <Skeleton
                   className="dark:bg-slate-800"
-                  animation="wave"
                   variant="text"
                   sx={{ fontSize: "1.2rem" }}
                 />
