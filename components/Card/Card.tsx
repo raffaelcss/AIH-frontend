@@ -13,20 +13,22 @@ export const CardLoadingContext = createContext(true);
 export default function Card() {
   const [loading, setLoading] = useState(true);
 
-  let timeSimulatedLoading = Math.round(Math.random()*2000 + 500);
+  //Simula tempo de carregamento
+  let timeSimulatedLoading = Math.round(Math.random() * 1000);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    },timeSimulatedLoading);
+    }, timeSimulatedLoading);
   });
+
+  //Simula alguns usuários sem foto
+  let retiraFoto = Math.random() >= 0.5 ? "*" : ""; 
 
   return (
     <CardLoadingContext.Provider value={loading}>
-      <div
-        className="relative flex w-68 flex-col overflow-hidden rounded-2xl bg-white p-4 transition-colors dark:bg-slate-900"
-      >
+      <div className="relative flex w-68 flex-col overflow-hidden rounded-2xl bg-white p-4 transition-colors dark:bg-slate-900">
         <div className="flex h-[35px] items-center justify-between text-slate-500">
-          <div className="flex flex-1 items-center gap-2">
+          <a className="flex flex-1 items-center gap-2">
             {loading ? (
               <Skeleton
                 className="dark:bg-slate-800"
@@ -42,7 +44,7 @@ export default function Card() {
                   bgcolor: "rgb(226 232 240)",
                   color: "rgb(100 116 139)",
                 }}
-                src="https://avatars.githubusercontent.com/u/79311217?v=4"
+                src={`${retiraFoto}https://avatars.githubusercontent.com/u/79311217?v=4`}
               />
             )}
 
@@ -71,7 +73,7 @@ export default function Card() {
                 </div>
               </div>
             )}
-          </div>
+          </a>
           <div className="flex-none cursor-pointer">
             <LuMoreVertical size="1.4rem" />
           </div>

@@ -3,7 +3,6 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { MagicMotion } from "react-magic-motion";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { OpenContext } from "./SideNav";
-import { themeChange } from "@/app/utils/themeChangeFunction";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useTheme } from "next-themes";
 
@@ -15,19 +14,24 @@ export default function LightModeSwitch() {
 
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-
-  let darkState = theme == "dark";
+  const [darkState, setDarkState] = useState(theme == "dark");
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    if (darkState)
-      setTheme("light")
-    else
-    setTheme("dark");
+    if (darkState) {
+      setTheme("light");
+      setDarkState(false);
+    } else {
+      setTheme("dark");
+      setDarkState(true);
+    }
   };
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches && theme=="system") {
+      setDarkState(true);
+    }
   }, []);
 
   if (!mounted) {
