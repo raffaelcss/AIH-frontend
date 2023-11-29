@@ -1,12 +1,13 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
+import { ReactNode } from "react";
 
 interface ProvidersProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-export function Providers({ children }: ProvidersProps) {
+export function NextThemeContextProvider({ children }: ProvidersProps) {
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
       {children}

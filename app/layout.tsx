@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-import { Poppins } from "next/font/google";
-
 import SideNavAIH from "@/components/ui/SideNavAIH";
-import { Providers } from "./providers";
-
-const inter = Inter({ subsets: ["latin"] });
+import { NextThemeContextProvider } from "./contexts/next-theme-context";
+import { MUIThemeContextProvider } from "./contexts/mui-theme-context";
 
 // Configura a fonte para usar as propriedades padrões
 const poppins = Poppins({
@@ -30,12 +27,14 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-indigo-200 pl-12 dark:bg-slate-950 md:pl-20 ${poppins.className}`}
+        className={`${poppins.className} bg-slate-200 pl-12 dark:bg-slate-950 md:pl-20`}
       >
-        <Providers>
-          <SideNavAIH />
-          {children}
-        </Providers>
+        <NextThemeContextProvider>
+          <MUIThemeContextProvider>
+            <SideNavAIH />
+            {children}
+          </MUIThemeContextProvider>
+        </NextThemeContextProvider>
       </body>
     </html>
   );
