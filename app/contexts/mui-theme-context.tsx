@@ -21,9 +21,9 @@ interface ProviderProps {
 }
 
 export function MUIThemeContextProvider({ children }: ProviderProps) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
-  let darkMode = (theme == "dark") || (window.matchMedia("(prefers-color-scheme: dark)").matches && theme == "system")
+  let darkMode = (resolvedTheme == "dark");
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
