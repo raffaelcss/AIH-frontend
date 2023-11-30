@@ -3,7 +3,7 @@ import { Avatar } from "@mui/material";
 
 export default function Header() {
   return (
-    <header className="flex">
+    <header className="flex bg-slate-300 px-12 py-7 dark:bg-slate-900">
       <div className="flex flex-1 justify-center md:justify-start">
         <SearchInput />
       </div>
