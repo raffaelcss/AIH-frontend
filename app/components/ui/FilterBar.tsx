@@ -9,6 +9,7 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import { FilterByType } from "./filter-by-type";
 
 interface FilterBarProps {}
 export function FilterBar(props: FilterBarProps) {
@@ -22,15 +23,7 @@ export function FilterBar(props: FilterBarProps) {
   return (
     <div className="h-28 px-12">
       <div className="flex h-16 items-end justify-between">
-        <div className="text-base text-slate-800 dark:text-gray-100">
-          <ul className="flex gap-5">
-            <li className="cursor-pointer border-b-4 border-sky-400 dark:border-sky-600">
-              Todos
-            </li>
-            <li className="cursor-pointer">Planetárias</li>
-            <li className="cursor-pointer">Deep Sky</li>
-          </ul>
-        </div>
+        <FilterByType />
         {mounted && (
           <div>
             <FormControl
@@ -59,12 +52,7 @@ export function FilterBar(props: FilterBarProps) {
       </div>
       <div className="mt-5 flex justify-end">
         {mounted && (
-          <Pagination
-            color="primary"
-            count={26}
-            shape="rounded"
-            size="small"
-          />
+          <Pagination color="primary" count={26} shape="rounded" size="small" />
         )}
       </div>
     </div>

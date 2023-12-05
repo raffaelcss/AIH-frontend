@@ -1,4 +1,4 @@
-import SearchInput from "@/components/SearchInput";
+import SearchInput from "@/app/components/SearchInput";
 import { Avatar } from "@mui/material";
 
 export default function Header() {

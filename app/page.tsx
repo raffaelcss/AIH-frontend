@@ -1,6 +1,6 @@
-import Card from "@/components/Card/Card";
-import { FilterBar } from "@/components/ui/FilterBar";
-import Header from "@/components/ui/Header";
+import Card from "@/app/components/Card/Card";
+import { FilterBar } from "@/app/components/ui/FilterBar";
+import Header from "@/app/components/ui/Header";
 
 export default function Home() {
   let cards: Array<number> = [];

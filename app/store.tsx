@@ -1,5 +1,5 @@
-import Card from "@/components/Card/Card";
-import SearchInput from "@/components/SearchInput";
+import Card from "@/app/components/Card/Card";
+import SearchInput from "@/app/components/SearchInput";
 import { Avatar, Pagination, PaginationItem } from "@mui/material";
 
 export default function Store() {

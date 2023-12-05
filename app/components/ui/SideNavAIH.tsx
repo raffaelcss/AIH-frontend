@@ -1,5 +1,5 @@
-import SideNav from "@/components/ui/SideNav";
-import NavItem from "@/components/ui/SideNavItem";
+import SideNav from "@/app/components/ui/SideNav";
+import NavItem from "@/app/components/ui/SideNavItem";
 import { IoBagHandle } from "react-icons/io5";
 import { FaPenSquare, FaImages, FaUserAlt } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
