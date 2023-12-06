@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
-import SideNavAIH from "@/components/ui/SideNavAIH";
+import SideNavAIH from "@/app/components/ui/SideNavAIH";
 import { NextThemeContextProvider } from "./contexts/next-theme-context";
 import { MUIThemeContextProvider } from "./contexts/mui-theme-context";
+import { FilterContextProvider } from "./contexts/filter-context";
 
 // Configura a fonte para usar as propriedades padrões
 const poppins = Poppins({
@@ -32,7 +33,9 @@ export default function RootLayout({
         <NextThemeContextProvider>
           <MUIThemeContextProvider>
             <SideNavAIH />
-            {children}
+            <FilterContextProvider>
+              {children}
+            </FilterContextProvider>
           </MUIThemeContextProvider>
         </NextThemeContextProvider>
       </body>
