@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Pagination,
-  Select,
-  ThemeProvider,
-} from "@mui/material";
+import { Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 import { FilterByType } from "../filter-by-type";
 import { FilterByOrder } from "../filter-by-order";
